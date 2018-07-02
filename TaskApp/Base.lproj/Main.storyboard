@@ -22,10 +22,14 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kuv-Rf-jbV">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuv-Rf-jbV">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                </textAttributes>
                                 <items>
-                                    <navigationItem title="Title" id="3Va-a0-ZvU"/>
+                                    <navigationItem title="Task" id="3Va-a0-ZvU"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -44,7 +48,7 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="csY-rg-dpS" id="NnL-X7-lra"/>
-                        <segue destination="Dpa-h1-gmi" kind="presentation" id="VS7-3Y-dQD"/>
+                        <segue destination="n9l-1r-GqE" kind="presentation" identifier="detail" id="Hxi-t0-0g2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -59,17 +63,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zWB-CZ-R4Z">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zWB-CZ-R4Z">
+                                <rect key="frame" x="0.0" y="90" width="375" height="577"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6f-j3-GIZ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="PJH-Su-JKT"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Detail" id="ESA-mK-irs">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="stop" id="vQU-97-scA">
+                                            <connections>
+                                                <action selector="closeButton:" destination="n9l-1r-GqE" id="G33-Jp-VbO"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="zWB-CZ-R4Z" firstAttribute="leading" secondItem="YfV-ZV-XvH" secondAttribute="leading" id="6Ye-20-Cxk"/>
-                            <constraint firstItem="zWB-CZ-R4Z" firstAttribute="trailing" secondItem="YfV-ZV-XvH" secondAttribute="trailing" id="mJc-4H-FjU"/>
-                            <constraint firstItem="zWB-CZ-R4Z" firstAttribute="bottom" secondItem="YfV-ZV-XvH" secondAttribute="bottom" id="naT-3q-Mkd"/>
-                            <constraint firstItem="zWB-CZ-R4Z" firstAttribute="top" secondItem="YfV-ZV-XvH" secondAttribute="top" id="wq5-nG-3hi"/>
+                            <constraint firstItem="z6f-j3-GIZ" firstAttribute="trailing" secondItem="YfV-ZV-XvH" secondAttribute="trailing" id="6ou-yt-Awl"/>
+                            <constraint firstItem="zWB-CZ-R4Z" firstAttribute="leading" secondItem="z6f-j3-GIZ" secondAttribute="leading" id="9ZJ-xh-Kan"/>
+                            <constraint firstItem="zWB-CZ-R4Z" firstAttribute="bottom" secondItem="YfV-ZV-XvH" secondAttribute="bottom" id="NTz-WY-Vjh"/>
+                            <constraint firstItem="zWB-CZ-R4Z" firstAttribute="trailing" secondItem="z6f-j3-GIZ" secondAttribute="trailing" id="Veo-EB-j8U"/>
+                            <constraint firstItem="z6f-j3-GIZ" firstAttribute="top" secondItem="YfV-ZV-XvH" secondAttribute="top" id="jge-yy-ikf"/>
+                            <constraint firstItem="zWB-CZ-R4Z" firstAttribute="top" secondItem="z6f-j3-GIZ" secondAttribute="top" constant="70" id="okC-0I-866"/>
+                            <constraint firstItem="z6f-j3-GIZ" firstAttribute="leading" secondItem="YfV-ZV-XvH" secondAttribute="leading" id="qi5-yK-zjP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YfV-ZV-XvH"/>
                     </view>
@@ -80,25 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pBT-vm-z8G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1384.8" y="133.5832083958021"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="h3t-nx-Clm">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Dpa-h1-gmi" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hhv-5V-5A5">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="n9l-1r-GqE" kind="relationship" relationship="rootViewController" id="xfC-2l-wd9"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ghZ-uD-zFc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="678" y="134"/>
+            <point key="canvasLocation" x="892" y="133.5832083958021"/>
         </scene>
     </scenes>
 </document>

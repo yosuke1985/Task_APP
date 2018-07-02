@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-protocol realaodTable {
+protocol AddTaskTableViewCellDelegate {
     func relaod()
 }
 
@@ -17,7 +17,7 @@ class AddTaskTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     let realm = try! Realm()
-    var delegate:realaodTable?
+    var delegate:AddTaskTableViewCellDelegate?
 
     
     override func awakeFromNib() {

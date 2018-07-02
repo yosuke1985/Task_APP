@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, realaodTable{
+class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, AddTaskTableViewCellDelegate,TaskListTableViewCellDelegate{
 
     @IBOutlet weak var tableView: UITableView!
     var allTask:[Task]?
@@ -24,27 +24,45 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         reload()
     
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
-    func reload(){
-        
-        //安全になにか書いたほうがよさげ
-        allTask = Task.loadAll()
-        taskCount = (allTask?.count)!
-        
-    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return taskCount + 1
+    func reload(){
+        //安全になにか書いたほうがよさげ
+        allTask = Task.loadAll()
+        taskCount = (allTask?.count)!
+        
+    }
+    
+    func goToDetail(){
+        //data[indexPath.row]
+        performSegue(withIdentifier: "detail", sender: nil)
+
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+//        let nextVC = segue.destination as! NextViewController
+//        print(nextVC.view) // ラベルのインスタンス作成のため…ダサいw 他にいい手はないのか.
+//
+//        nextVC.label.text = sender as! String
     }
     
     
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return taskCount + 1
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 44.0
+    }
+    
+
 
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
@@ -55,6 +73,7 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
             //安全？
             cell.checkBox.on = (allTask?[indexPath.row].done)!
             cell.task = (allTask?[indexPath.row])!
+            cell.delegate = self
             return cell
         }else{
             //indexPath.rowがallTask.count部分にaddTaskCell
@@ -68,7 +87,7 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
     
     func relaod() {
         reload()
-        tableView.reloadData()        
+        tableView.reloadData()
     }
     
 

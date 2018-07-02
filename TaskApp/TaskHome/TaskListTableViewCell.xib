@@ -6,7 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,25 +31,28 @@
                             <action selector="didToggleCheckboxButton:" destination="KGk-i7-Jjw" eventType="valueChanged" id="mU2-dL-qZq"/>
                         </connections>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2g0-k0-fE2">
+                        <rect key="frame" x="286" y="11" width="22" height="22"/>
+                        <connections>
+                            <action selector="goTaskDetail:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="nr4-DN-D8b"/>
+                        </connections>
+                    </button>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oR8-U9-KOq">
-                        <rect key="frame" x="41" y="3" width="279" height="38"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="oR8-U9-KOq" secondAttribute="height" multiplier="279:38" id="jhM-Jf-aLQ"/>
-                        </constraints>
+                        <rect key="frame" x="41" y="3" width="215" height="38"/>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits"/>
-                        <connections>
-                            <action selector="listTextField:" destination="KGk-i7-Jjw" eventType="editingDidEnd" id="hXA-Bz-dgA"/>
-                        </connections>
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="oR8-U9-KOq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="7BH-rJ-9Tv"/>
+                    <constraint firstItem="oR8-U9-KOq" firstAttribute="leading" secondItem="3nI-C1-Hc7" secondAttribute="trailing" constant="8" symbolic="YES" id="JFt-NH-9QE"/>
+                    <constraint firstAttribute="trailing" secondItem="2g0-k0-fE2" secondAttribute="trailing" constant="12" id="KiQ-lI-mfZ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="oR8-U9-KOq" secondAttribute="trailing" constant="48" id="bUx-3v-q5D"/>
+                    <constraint firstItem="oR8-U9-KOq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="hYM-bl-5Ip"/>
                     <constraint firstItem="3nI-C1-Hc7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="ln7-Oo-rlC"/>
-                    <constraint firstItem="oR8-U9-KOq" firstAttribute="leading" secondItem="3nI-C1-Hc7" secondAttribute="trailing" constant="8" id="m5q-me-8Vt"/>
                     <constraint firstItem="3nI-C1-Hc7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="mgD-WU-zjn"/>
-                    <constraint firstAttribute="trailing" secondItem="oR8-U9-KOq" secondAttribute="trailing" id="paI-E9-F7U"/>
+                    <constraint firstItem="2g0-k0-fE2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="11" id="wd9-f0-BFo"/>
+                    <constraint firstItem="oR8-U9-KOq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="zYW-Yg-udY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>

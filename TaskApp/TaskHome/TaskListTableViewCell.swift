@@ -9,13 +9,17 @@
 import UIKit
 import RealmSwift
 
+protocol TaskListTableViewCellDelegate {
+    func goToDetail()
+}
+
 class TaskListTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var checkBox: CheckboxButton!
     @IBOutlet weak var textField: UITextField!
     var task: Task =  Task()
     let realm = try! Realm()
-
+    var delegate :TaskListTableViewCellDelegate? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,17 +33,14 @@ class TaskListTableViewCell: UITableViewCell, UITextFieldDelegate {
         // Configure the view for the selected state
     }
     
+    @IBAction func goTaskDetail(_ sender: Any) {
+        print("test")
+        delegate?.goToDetail()
+    }
     
     func textFieldDidEndEditing(_ textField: UITextField){
         let test = textField.text
         print(test)
-        
-    } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
-
-    
-
-    
-    @IBAction func listTextField(_ sender: Any) {
         
     }
     
@@ -64,5 +65,8 @@ class TaskListTableViewCell: UITableViewCell, UITextFieldDelegate {
         print(task.done)
         
     }
+    
+
+    
     
 }
