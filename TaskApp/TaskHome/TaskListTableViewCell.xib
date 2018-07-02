@@ -13,27 +13,28 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="TaskListTableViewCell" customModule="TaskApp" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="KGk-i7-Jjw" customClass="TaskListTableViewCell" customModule="TaskApp" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d7V-Ws-eNL">
-                        <rect key="frame" x="12" y="10" width="22" height="22"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3nI-C1-Hc7" customClass="CheckboxButton" customModule="TaskApp">
+                        <rect key="frame" x="3" y="6" width="30" height="30"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="22" id="d1D-c2-ZTh"/>
-                            <constraint firstAttribute="width" constant="22" id="xQq-kB-lmg"/>
+                            <constraint firstAttribute="width" constant="30" id="DI8-VV-qVm"/>
+                            <constraint firstAttribute="height" constant="30" id="uNz-Te-vWQ"/>
                         </constraints>
                         <connections>
-                            <action selector="doneAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Usf-J9-f6T"/>
+                            <action selector="didToggleCheckboxButton:" destination="KGk-i7-Jjw" eventType="valueChanged" id="mU2-dL-qZq"/>
                         </connections>
-                    </button>
+                    </view>
                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oR8-U9-KOq">
-                        <rect key="frame" x="42" y="6" width="278" height="30"/>
+                        <rect key="frame" x="41" y="3" width="279" height="38"/>
                         <constraints>
-                            <constraint firstAttribute="width" secondItem="oR8-U9-KOq" secondAttribute="height" multiplier="55:6" constant="3" id="EAE-Yw-Zzc"/>
+                            <constraint firstAttribute="width" secondItem="oR8-U9-KOq" secondAttribute="height" multiplier="279:38" id="jhM-Jf-aLQ"/>
                         </constraints>
                         <nil key="textColor"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -44,16 +45,16 @@
                     </textField>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="d7V-Ws-eNL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="3Mm-fn-sHa"/>
-                    <constraint firstItem="oR8-U9-KOq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="FN7-tW-LYv"/>
-                    <constraint firstAttribute="trailing" secondItem="oR8-U9-KOq" secondAttribute="trailing" id="VOD-5I-QcW"/>
-                    <constraint firstItem="d7V-Ws-eNL" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="Ved-DQ-GfK"/>
-                    <constraint firstItem="oR8-U9-KOq" firstAttribute="leading" secondItem="d7V-Ws-eNL" secondAttribute="trailing" constant="8" id="cwb-FX-z6O"/>
+                    <constraint firstItem="oR8-U9-KOq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="3" id="7BH-rJ-9Tv"/>
+                    <constraint firstItem="3nI-C1-Hc7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="3" id="ln7-Oo-rlC"/>
+                    <constraint firstItem="oR8-U9-KOq" firstAttribute="leading" secondItem="3nI-C1-Hc7" secondAttribute="trailing" constant="8" id="m5q-me-8Vt"/>
+                    <constraint firstItem="3nI-C1-Hc7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="mgD-WU-zjn"/>
+                    <constraint firstAttribute="trailing" secondItem="oR8-U9-KOq" secondAttribute="trailing" id="paI-E9-F7U"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="doneButton" destination="d7V-Ws-eNL" id="47f-oM-iA8"/>
+                <outlet property="checkBox" destination="3nI-C1-Hc7" id="fLk-aR-LTc"/>
                 <outlet property="textField" destination="oR8-U9-KOq" id="VJl-5O-a6M"/>
             </connections>
         </tableViewCell>

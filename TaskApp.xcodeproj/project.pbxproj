@@ -14,6 +14,7 @@
 		3318F30320E4CC36002C8189 /* AddTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3318F30120E4CC36002C8189 /* AddTaskTableViewCell.xib */; };
 		3318F30520E4CC57002C8189 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3318F30420E4CC57002C8189 /* TaskDetailViewController.swift */; };
 		3319AEDF20E9C92E006795EE /* realmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3319AEDE20E9C92E006795EE /* realmDB.swift */; };
+		3319AEE120E9FF47006795EE /* CheckboxButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3319AEE020E9FF47006795EE /* CheckboxButton.swift */; };
 		3368DD2620E32DA700FE05D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368DD2520E32DA700FE05D8 /* AppDelegate.swift */; };
 		3368DD2820E32DA700FE05D8 /* TaskHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368DD2720E32DA700FE05D8 /* TaskHomeViewController.swift */; };
 		3368DD2B20E32DA700FE05D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3368DD2920E32DA700FE05D8 /* Main.storyboard */; };
@@ -50,6 +51,7 @@
 		3318F30120E4CC36002C8189 /* AddTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskTableViewCell.xib; sourceTree = "<group>"; };
 		3318F30420E4CC57002C8189 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
 		3319AEDE20E9C92E006795EE /* realmDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = realmDB.swift; sourceTree = "<group>"; };
+		3319AEE020E9FF47006795EE /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		3368DD2220E32DA700FE05D8 /* TaskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3368DD2520E32DA700FE05D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3368DD2720E32DA700FE05D8 /* TaskHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHomeViewController.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 			children = (
 				3368DD2520E32DA700FE05D8 /* AppDelegate.swift */,
 				3319AEDE20E9C92E006795EE /* realmDB.swift */,
+				3319AEE020E9FF47006795EE /* CheckboxButton.swift */,
 				330B971620E7AB18003F3B5B /* TaskHome */,
 				330B971720E7AC5D003F3B5B /* TaskDetail */,
 				3368DD2920E32DA700FE05D8 /* Main.storyboard */,
@@ -422,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				330B971420E7AB08003F3B5B /* TaskListTableViewCell.swift in Sources */,
+				3319AEE120E9FF47006795EE /* CheckboxButton.swift in Sources */,
 				3368DD2820E32DA700FE05D8 /* TaskHomeViewController.swift in Sources */,
 				3368DD2620E32DA700FE05D8 /* AppDelegate.swift in Sources */,
 				3319AEDF20E9C92E006795EE /* realmDB.swift in Sources */,

@@ -48,6 +48,8 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         if indexPath.row <= taskCount - 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "taskList", for: indexPath) as! TaskListTableViewCell
             cell.textField.text = allTask?[indexPath.row].task_name
+            //安全？
+            cell.checkBox.on = (allTask?[indexPath.row].done)!
             return cell
         }else{
             //indexPath.rowがallTask.count部分にaddTaskCell

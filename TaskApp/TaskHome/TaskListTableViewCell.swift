@@ -10,16 +10,13 @@ import UIKit
 
 class TaskListTableViewCell: UITableViewCell, UITextFieldDelegate {
 
+    @IBOutlet weak var checkBox: CheckboxButton!
     @IBOutlet weak var textField: UITextField!
-    @IBOutlet weak var doneButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         textField.delegate = self
-        
-        textField.clearButtonMode = .whileEditing
-        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -36,10 +33,7 @@ class TaskListTableViewCell: UITableViewCell, UITextFieldDelegate {
     } // may be called if forced even if shouldEndEditing returns NO (e.g. view removed from window) or endEditing:YES called
 
     
-    @IBAction func doneAction(_ sender: Any) {
-        
-        print("from doneAction")
-    }
+
     
     @IBAction func listTextField(_ sender: Any) {
         
@@ -51,6 +45,13 @@ class TaskListTableViewCell: UITableViewCell, UITextFieldDelegate {
         textField.resignFirstResponder()
         
         return true
+    }
+    @IBAction func didToggleCheckboxButton(_ sender: CheckboxButton) {
+        
+        let state = sender.on ? "ON" : "OFF"
+        
+        print("CheckboxButton: did turn \(state)")
+        
     }
     
 }
