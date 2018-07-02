@@ -27,7 +27,6 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return 2
