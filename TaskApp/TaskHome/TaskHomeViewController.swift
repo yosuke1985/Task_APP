@@ -50,6 +50,7 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
             cell.textField.text = allTask?[indexPath.row].task_name
             //安全？
             cell.checkBox.on = (allTask?[indexPath.row].done)!
+            cell.task = (allTask?[indexPath.row])!
             return cell
         }else{
             //indexPath.rowがallTask.count部分にaddTaskCell

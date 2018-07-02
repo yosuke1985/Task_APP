@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TaskListTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var checkBox: CheckboxButton!
     @IBOutlet weak var textField: UITextField!
+    var task: Task =  Task()
+    let realm = try! Realm()
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -47,10 +51,17 @@ class TaskListTableViewCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     @IBAction func didToggleCheckboxButton(_ sender: CheckboxButton) {
-        
         let state = sender.on ? "ON" : "OFF"
-        
         print("CheckboxButton: did turn \(state)")
+
+//        print(sender.on)
+        //        task.save()
+        try! realm.write {
+            task.done = sender.on
+            realm.add(task)
+        }
+        
+        print(task.done)
         
     }
     
