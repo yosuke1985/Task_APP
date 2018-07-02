@@ -9,16 +9,23 @@
 import UIKit
 import RealmSwift
 
+protocol realaodTable {
+    func relaod()
+}
+
 class AddTaskTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
     let realm = try! Realm()
+    var delegate:realaodTable?
 
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         textField.delegate = self
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -37,8 +44,10 @@ class AddTaskTableViewCell: UITableViewCell, UITextFieldDelegate {
         let new = Task.create()
         new.task_name = taskname
         new.save()
-        
         textField.text = nil
+        
+        delegate?.relaod()
+        
         
         return true
     }

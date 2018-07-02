@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
+class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, realaodTable{
 
     @IBOutlet weak var tableView: UITableView!
     var allTask:[Task]?
@@ -21,14 +21,18 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
 
         tableView.register(UINib(nibName: "AddTaskTableViewCell", bundle: nil), forCellReuseIdentifier: "addTask")
         tableView.register(UINib(nibName: "TaskListTableViewCell", bundle: nil), forCellReuseIdentifier: "taskList")
-
+        reload()
+    
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func reload(){
+        
         //安全になにか書いたほうがよさげ
         allTask = Task.loadAll()
         taskCount = (allTask?.count)!
         
-
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,10 +59,17 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         }else{
             //indexPath.rowがallTask.count部分にaddTaskCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "addTask", for: indexPath) as! AddTaskTableViewCell
+            cell.delegate = self
+        
             return cell
         }
     }
 
+    
+    func relaod() {
+        reload()
+        tableView.reloadData()        
+    }
     
 
 }
