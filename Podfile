@@ -7,11 +7,13 @@ target 'TaskApp' do
   # Pods for TaskApp
   
   pod 'RealmSwift'
-  pod 'SwiftDate', '~>  4.5.1'
-  pod 'Firebase/Core'
-  pod 'Firebase/Storage'
-  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
   
+#  pod 'SwiftDate', '~>  4.5.1'
+#  pod 'Firebase/Core'
+#  pod 'Firebase/Storage'
+#  pod 'Firebase/Auth'
+
   target 'TaskAppTests' do
     inherit! :search_paths
     # Pods for testing
