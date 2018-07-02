@@ -11,6 +11,8 @@ import RealmSwift
 
 class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, AddTaskTableViewCellDelegate,TaskListTableViewCellDelegate{
 
+    
+
     @IBOutlet weak var tableView: UITableView!
     var allTask:[Task]?
     var taskCount:Int = 0
@@ -38,20 +40,25 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         allTask = Task.loadAll()
         taskCount = (allTask?.count)!
         
+        
     }
     
-    func goToDetail(){
+    func goToDetail(sender: Task){
         //data[indexPath.row]
-        performSegue(withIdentifier: "detail", sender: nil)
+        performSegue(withIdentifier: "detail", sender: sender)
 
     }
+    
+
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
-//        let nextVC = segue.destination as! NextViewController
-//        print(nextVC.view) // ラベルのインスタンス作成のため…ダサいw 他にいい手はないのか.
-//
-//        nextVC.label.text = sender as! String
+        let nextVC = segue.destination as! TaskDetailViewController
+        print(nextVC.view)
+        print("prepare(for segue", sender!)
+
+        nextVC.task = sender as! Task
+        
     }
     
     

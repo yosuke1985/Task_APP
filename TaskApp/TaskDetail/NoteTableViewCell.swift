@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import RealmSwift
 
-class NoteTableViewCell: UITableViewCell {
+class NoteTableViewCell: UITableViewCell, UITextViewDelegate {
+    var task:Task?
+    let realm = try! Realm()
 
+    @IBOutlet weak var textView: UITextView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        textView.delegate = self
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -20,5 +26,16 @@ class NoteTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    public func textViewDidChange(_ textView: UITextView){
+        
+        try! realm.write {
+            task?.notes = textView.text
+            task?.UpdatedAt = NSDate()
+            realm.add(task!)
+        }
+        
+    }
+
     
 }

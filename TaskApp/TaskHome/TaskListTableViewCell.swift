@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 protocol TaskListTableViewCellDelegate {
-    func goToDetail()
+    func goToDetail(sender: Task)
 }
 
 class TaskListTableViewCell: UITableViewCell, UITextFieldDelegate {
@@ -35,7 +35,7 @@ class TaskListTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBAction func goTaskDetail(_ sender: Any) {
         print("test")
-        delegate?.goToDetail()
+        delegate?.goToDetail(sender: task)
     }
     
     func textFieldDidEndEditing(_ textField: UITextField){
