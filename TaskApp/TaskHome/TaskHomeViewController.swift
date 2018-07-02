@@ -7,18 +7,26 @@
 //
 
 import UIKit
+import RealmSwift
 
 class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
+    var allTask:[Task]?
+    var taskCount:Int = 0
+    
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
-        
+
         tableView.register(UINib(nibName: "AddTaskTableViewCell", bundle: nil), forCellReuseIdentifier: "addTask")
         tableView.register(UINib(nibName: "TaskListTableViewCell", bundle: nil), forCellReuseIdentifier: "taskList")
 
+        //安全になにか書いたほうがよさげ
+        allTask = Task.loadAll()
+        taskCount = (allTask?.count)!
         
+
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -29,26 +37,23 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 2
+        return taskCount + 1
     }
     
     
 
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        
-        if indexPath.row==0{
-            
+        // indexPath.rowが0からallTask.count -1まで
+        if indexPath.row <= taskCount - 1{
             let cell = tableView.dequeueReusableCell(withIdentifier: "taskList", for: indexPath) as! TaskListTableViewCell
+            cell.textField.text = allTask?[indexPath.row].task_name
             return cell
-
         }else{
+            //indexPath.rowがallTask.count部分にaddTaskCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "addTask", for: indexPath) as! AddTaskTableViewCell
             return cell
-            
         }
-
-        
     }
 
     

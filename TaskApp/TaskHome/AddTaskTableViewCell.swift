@@ -12,7 +12,6 @@ import RealmSwift
 class AddTaskTableViewCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var textField: UITextField!
-    var textInput:String? = ""
     let realm = try! Realm()
 
     
