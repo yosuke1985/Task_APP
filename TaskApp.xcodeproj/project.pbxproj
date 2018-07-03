@@ -10,6 +10,7 @@
 		25C8F5A22B9A402D569D967C /* Pods_TaskAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C95689038FD4A535202001AC /* Pods_TaskAppUITests.framework */; };
 		330B971420E7AB08003F3B5B /* TaskListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B971220E7AB08003F3B5B /* TaskListTableViewCell.swift */; };
 		330B971520E7AB08003F3B5B /* TaskListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330B971320E7AB08003F3B5B /* TaskListTableViewCell.xib */; };
+		330CD02520EB14D700A62C3D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 330CD02420EB14D700A62C3D /* GoogleService-Info.plist */; };
 		3318F30220E4CC36002C8189 /* AddTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3318F30020E4CC36002C8189 /* AddTaskTableViewCell.swift */; };
 		3318F30320E4CC36002C8189 /* AddTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3318F30120E4CC36002C8189 /* AddTaskTableViewCell.xib */; };
 		3318F30520E4CC57002C8189 /* TaskDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3318F30420E4CC57002C8189 /* TaskDetailViewController.swift */; };
@@ -49,6 +50,7 @@
 		2BFC4738E7FB1961BE9346E5 /* Pods-TaskAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskAppTests/Pods-TaskAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		330B971220E7AB08003F3B5B /* TaskListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListTableViewCell.swift; sourceTree = "<group>"; };
 		330B971320E7AB08003F3B5B /* TaskListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskListTableViewCell.xib; sourceTree = "<group>"; };
+		330CD02420EB14D700A62C3D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3318F30020E4CC36002C8189 /* AddTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskTableViewCell.swift; sourceTree = "<group>"; };
 		3318F30120E4CC36002C8189 /* AddTaskTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddTaskTableViewCell.xib; sourceTree = "<group>"; };
 		3318F30420E4CC57002C8189 /* TaskDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskDetailViewController.swift; sourceTree = "<group>"; };
@@ -169,13 +171,14 @@
 			children = (
 				3368DD2520E32DA700FE05D8 /* AppDelegate.swift */,
 				3319AEDE20E9C92E006795EE /* realmDB.swift */,
-				3319AEE020E9FF47006795EE /* CheckboxButton.swift */,
 				330B971620E7AB18003F3B5B /* TaskHome */,
 				330B971720E7AC5D003F3B5B /* TaskDetail */,
 				3368DD2920E32DA700FE05D8 /* Main.storyboard */,
 				3368DD2C20E32DA900FE05D8 /* Assets.xcassets */,
 				3368DD2E20E32DA900FE05D8 /* LaunchScreen.storyboard */,
 				3368DD3120E32DA900FE05D8 /* Info.plist */,
+				330CD02420EB14D700A62C3D /* GoogleService-Info.plist */,
+				3319AEE020E9FF47006795EE /* CheckboxButton.swift */,
 			);
 			path = TaskApp;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				3319AEE520EA33BD006795EE /* NoteTableViewCell.xib in Resources */,
 				3368DD2D20E32DA900FE05D8 /* Assets.xcassets in Resources */,
 				3368DD2B20E32DA700FE05D8 /* Main.storyboard in Resources */,
+				330CD02520EB14D700A62C3D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,14 +356,18 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

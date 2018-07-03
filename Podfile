@@ -8,9 +8,9 @@ target 'TaskApp' do
   
   pod 'RealmSwift'
   pod 'Firebase/Database'
-  
+  pod 'Firebase/Core'
+  pod 'SwiftyJSON'
 #  pod 'SwiftDate', '~>  4.5.1'
-#  pod 'Firebase/Core'
 #  pod 'Firebase/Storage'
 #  pod 'Firebase/Auth'
 
