@@ -10,6 +10,8 @@ target 'TaskApp' do
   pod 'Firebase/Database'
   pod 'Firebase/Core'
   pod 'SwiftyJSON'
+  pod 'RxSwift',    '~> 4.0'
+  pod 'RxCocoa',    '~> 4.0'
 #  pod 'SwiftDate', '~>  4.5.1'
 #  pod 'Firebase/Storage'
 #  pod 'Firebase/Auth'
