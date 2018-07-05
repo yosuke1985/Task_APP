@@ -24,9 +24,8 @@
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kuv-Rf-jbV">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                <color key="barTintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </textAttributes>
                                 <items>
                                     <navigationItem title="Task" id="3Va-a0-ZvU"/>
@@ -64,7 +63,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zWB-CZ-R4Z">
-                                <rect key="frame" x="0.0" y="90" width="375" height="577"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6f-j3-GIZ">
@@ -83,14 +82,14 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="zWB-CZ-R4Z" firstAttribute="top" secondItem="z6f-j3-GIZ" secondAttribute="bottom" id="5vC-Bw-MRG"/>
                             <constraint firstItem="z6f-j3-GIZ" firstAttribute="trailing" secondItem="YfV-ZV-XvH" secondAttribute="trailing" id="6ou-yt-Awl"/>
                             <constraint firstItem="zWB-CZ-R4Z" firstAttribute="leading" secondItem="z6f-j3-GIZ" secondAttribute="leading" id="9ZJ-xh-Kan"/>
                             <constraint firstItem="zWB-CZ-R4Z" firstAttribute="bottom" secondItem="YfV-ZV-XvH" secondAttribute="bottom" id="NTz-WY-Vjh"/>
                             <constraint firstItem="zWB-CZ-R4Z" firstAttribute="trailing" secondItem="z6f-j3-GIZ" secondAttribute="trailing" id="Veo-EB-j8U"/>
                             <constraint firstItem="z6f-j3-GIZ" firstAttribute="top" secondItem="YfV-ZV-XvH" secondAttribute="top" id="jge-yy-ikf"/>
-                            <constraint firstItem="zWB-CZ-R4Z" firstAttribute="top" secondItem="z6f-j3-GIZ" secondAttribute="top" constant="70" id="okC-0I-866"/>
                             <constraint firstItem="z6f-j3-GIZ" firstAttribute="leading" secondItem="YfV-ZV-XvH" secondAttribute="leading" id="qi5-yK-zjP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="YfV-ZV-XvH"/>

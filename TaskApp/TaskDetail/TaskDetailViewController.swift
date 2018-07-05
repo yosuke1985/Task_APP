@@ -19,7 +19,6 @@ class TaskDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "NoteTableViewCell", bundle: nil), forCellReuseIdentifier: "note")
-        tableView.backgroundColor = UIColor.black
         
     }
     
