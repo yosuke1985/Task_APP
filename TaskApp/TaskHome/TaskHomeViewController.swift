@@ -10,6 +10,8 @@ import UIKit
 import RealmSwift
 import Firebase
 import SwiftyJSON
+import RxSwift
+import RxCocoa
 
 
 
@@ -29,13 +31,31 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         tableView.register(UINib(nibName: "AddTaskTableViewCell", bundle: nil), forCellReuseIdentifier: "addTask")
         tableView.register(UINib(nibName: "TaskListTableViewCell", bundle: nil), forCellReuseIdentifier: "taskList")
         reload()
+        backUpToFirebase()
+        super.viewDidLoad()
+    }
+    
+
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    func reload(){
+        //安全になにか書いたほうがよさげ
+        allTask = Task.loadAll()
+        taskCount = (allTask?.count)!
+    }
+    
+    func backUpToFirebase(){
         //Firebaseにアップロードする
         ref = Database.database().reference()
         // Realm からデータの取得
         let objects = Task.loadAll()
         print("objects", objects)
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
- 
+        
         for object in objects{
             print(object.task_name)
             var data:[String:Any] = [:]
@@ -68,22 +88,6 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
                 print("value",val)
             }
         })
-        
-        
-        super.viewDidLoad()
-    }
-    
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    func reload(){
-        //安全になにか書いたほうがよさげ
-        allTask = Task.loadAll()
-        taskCount = (allTask?.count)!
         
         
     }
