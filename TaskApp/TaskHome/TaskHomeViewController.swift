@@ -12,6 +12,7 @@ import Firebase
 import SwiftyJSON
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 
 
 
@@ -145,6 +146,9 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         reload()
         tableView.reloadData()
     }
+    
+    
+
     
 
 }

@@ -13,7 +13,8 @@ target 'TaskApp' do
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
   pod 'Firebase/Auth'
-
+  pod 'FacebookLogin'
+  
 #  pod 'SwiftDate', '~>  4.5.1'
 #  pod 'Firebase/Storage'
 #  pod 'Firebase/Auth'
