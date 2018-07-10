@@ -25,6 +25,7 @@
 		3368DD3020E32DA900FE05D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3368DD2E20E32DA900FE05D8 /* LaunchScreen.storyboard */; };
 		3368DD3B20E32DA900FE05D8 /* TaskAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368DD3A20E32DA900FE05D8 /* TaskAppTests.swift */; };
 		3368DD4620E32DA900FE05D8 /* TaskAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3368DD4520E32DA900FE05D8 /* TaskAppUITests.swift */; };
+		33FECAC020F2F86200AE716A /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33FECABF20F2F86200AE716A /* AuthViewController.swift */; };
 		6893D9F305084709747B160F /* Pods_TaskAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3978C4AF0C2ADB6F8649AE9 /* Pods_TaskAppTests.framework */; };
 		7FE257025A9050DB3B17A5D7 /* Pods_TaskApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 536BDBFD4D4C866401D20E70 /* Pods_TaskApp.framework */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 		3319AEE020E9FF47006795EE /* CheckboxButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckboxButton.swift; sourceTree = "<group>"; };
 		3319AEE220EA33BD006795EE /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		3319AEE320EA33BD006795EE /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
+		334B1E2720F434300098EADA /* TaskApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TaskApp.entitlements; sourceTree = "<group>"; };
 		3368DD2220E32DA700FE05D8 /* TaskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3368DD2520E32DA700FE05D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3368DD2720E32DA700FE05D8 /* TaskHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHomeViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 		3368DD4120E32DA900FE05D8 /* TaskAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TaskAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3368DD4520E32DA900FE05D8 /* TaskAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAppUITests.swift; sourceTree = "<group>"; };
 		3368DD4720E32DA900FE05D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33FECABF20F2F86200AE716A /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		3D0F16C6B9AA7BA173944186 /* Pods-TaskAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskAppUITests/Pods-TaskAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		536BDBFD4D4C866401D20E70 /* Pods_TaskApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TaskApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		570F95C9FA02C8203794FFB3 /* Pods-TaskApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TaskApp/Pods-TaskApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +147,13 @@
 			path = TaskDetail;
 			sourceTree = "<group>";
 		};
+		334B1E2620F428BA0098EADA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3368DD1920E32DA700FE05D8 = {
 			isa = PBXGroup;
 			children = (
@@ -169,8 +179,11 @@
 		3368DD2420E32DA700FE05D8 /* TaskApp */ = {
 			isa = PBXGroup;
 			children = (
+				334B1E2720F434300098EADA /* TaskApp.entitlements */,
 				3368DD2520E32DA700FE05D8 /* AppDelegate.swift */,
 				3319AEDE20E9C92E006795EE /* realmDB.swift */,
+				33FECABF20F2F86200AE716A /* AuthViewController.swift */,
+				334B1E2620F428BA0098EADA /* Model */,
 				330B971620E7AB18003F3B5B /* TaskHome */,
 				330B971720E7AC5D003F3B5B /* TaskDetail */,
 				3368DD2920E32DA700FE05D8 /* Main.storyboard */,
@@ -283,6 +296,11 @@
 				TargetAttributes = {
 					3368DD2120E32DA700FE05D8 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					3368DD3520E32DA900FE05D8 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -353,11 +371,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-TaskApp/Pods-TaskApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
-				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -370,11 +383,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -458,6 +466,7 @@
 				3368DD2620E32DA700FE05D8 /* AppDelegate.swift in Sources */,
 				3319AEDF20E9C92E006795EE /* realmDB.swift in Sources */,
 				3318F30520E4CC57002C8189 /* TaskDetailViewController.swift in Sources */,
+				33FECAC020F2F86200AE716A /* AuthViewController.swift in Sources */,
 				3318F30220E4CC36002C8189 /* AddTaskTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -632,7 +641,9 @@
 			baseConfigurationReference = 570F95C9FA02C8203794FFB3 /* Pods-TaskApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TaskApp/TaskApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 826UFXVDY8;
 				INFOPLIST_FILE = TaskApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -650,7 +661,9 @@
 			baseConfigurationReference = 99BB230BEBD0F9B2856750EF /* Pods-TaskApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TaskApp/TaskApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 826UFXVDY8;
 				INFOPLIST_FILE = TaskApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
