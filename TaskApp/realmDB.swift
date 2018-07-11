@@ -61,4 +61,15 @@ class Task: Object {
         }
         return resList
     }
+    
+    static func deleteAll(){
+        let all = realm.objects(Task.self)
+        for object in all{
+            try! Task.realm.write {
+                Task.realm.delete(object)
+            }
+            
+        }
+        
+    }
 }
