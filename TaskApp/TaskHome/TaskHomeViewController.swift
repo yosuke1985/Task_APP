@@ -23,6 +23,9 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
     var allTask:[Task]?
     var taskCount:Int = 0
     var ref:DatabaseReference!
+    var user :User!
+    let usersRef = Database.database().reference(withPath: "Task")
+
 
     let formatter = DateFormatter()
     
@@ -31,11 +34,24 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         tableView.dataSource = self
         tableView.register(UINib(nibName: "AddTaskTableViewCell", bundle: nil), forCellReuseIdentifier: "addTask")
         tableView.register(UINib(nibName: "TaskListTableViewCell", bundle: nil), forCellReuseIdentifier: "taskList")
+        
+        Auth.auth().addStateDidChangeListener { auth, user in
+            guard let user = user else { return }
+            self.user = User(authData: user)
+            print("User(authData: user)", self.user)
+        }
+
         reload()
-        backUpToFirebase()
+
         super.viewDidLoad()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        //userに紐付いたTaskをアップロード
+        guard let user = user else{return}
+        backUpToFirebase(user:user)
+        print("self.user",self.user)
+    }
 
 
     override func didReceiveMemoryWarning() {
@@ -49,7 +65,7 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         taskCount = (allTask?.count)!
     }
     
-    func backUpToFirebase(){
+    func backUpToFirebase(user: User){
         //Firebaseにアップロードする
         ref = Database.database().reference()
         // Realm からデータの取得
@@ -73,7 +89,7 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
                 let myString = formatter.string(from: object.CreatedAt! as Date)
                 data["CreatedAt"] = myString
             }
-            ref.child("Task").child(String(object.id)).updateChildValues(data)
+            ref.child(user.uid).child("Task").child(String(object.id)).updateChildValues(data)
         }
         
         //取得
