@@ -40,9 +40,7 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
             self.user = User(authData: user)
             print("User(authData: user)", self.user)
         }
-
-        reload()
-
+        
         super.viewDidLoad()
     }
     
@@ -51,6 +49,9 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         guard let user = user else{return}
         backUpToFirebase(user:user)
         print("self.user",self.user)
+        
+        reload()
+
     }
 
 
@@ -65,49 +66,7 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         taskCount = (allTask?.count)!
     }
     
-    func backUpToFirebase(user: User){
-        //Firebaseにアップロードする
-        ref = Database.database().reference()
-        // Realm からデータの取得
-        let objects = Task.loadAll()
-        print("objects", objects)
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        
-        for object in objects{
-            print(object.task_name)
-            var data:[String:Any] = [:]
-            data["task_name"] = object.task_name
-            data["notes"] = object.notes
-            data["list"] = object.list
-            data["done"] = object.done
-            if object.UpdatedAt != nil{
-                let myString = formatter.string(from: object.UpdatedAt! as Date)
-                data["UpdatedAt"] = myString
-            }
-            
-            if object.CreatedAt != nil{
-                let myString = formatter.string(from: object.CreatedAt! as Date)
-                data["CreatedAt"] = myString
-            }
-            ref.child(user.uid).child("Task").child(String(object.id)).updateChildValues(data)
-        }
-        
-        //取得
-        ref.child("Task").observe(.value , with: { (snapshot: DataSnapshot) in
-            //JSON形式でもらいたい　オートIDから
-            let getjson = JSON(snapshot.value as? [String : AnyObject] ?? [:])
-            //データが0件の場合何もしない
-            if getjson.count == 0 { return }
-            //keyから辞書型、"msg"の内容を代入 "\n"は改行
-            for (key, val) in getjson.dictionaryValue {
-                //key情報と入力した文字を表示する
-                print("key",key)
-                print("value",val)
-            }
-        })
-        
-        
-    }
+  
     
     func goToDetail(sender: Task){
         //data[indexPath.row]
@@ -171,10 +130,60 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         } catch (let error) {
             print("Auth sign out failed: \(error)")
         }
+        
+        //delete Realm
+        Task.deleteAll()
 
 
     }
     
+    @IBAction func backUp(_ sender: Any) {
+        backUpToFirebase(user: user)
+    }
+    
+    func backUpToFirebase(user: User){
+        //Firebaseにアップロードする
+        ref = Database.database().reference()
+        // Realm からデータの取得
+        let objects = Task.loadAll()
+        print("objects", objects)
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        
+        for object in objects{
+            print(object.task_name)
+            var data:[String:Any] = [:]
+            data["task_name"] = object.task_name
+            data["notes"] = object.notes
+            data["list"] = object.list
+            data["done"] = object.done
+            if object.UpdatedAt != nil{
+                let myString = formatter.string(from: object.UpdatedAt! as Date)
+                data["UpdatedAt"] = myString
+            }
+            
+            if object.CreatedAt != nil{
+                let myString = formatter.string(from: object.CreatedAt! as Date)
+                data["CreatedAt"] = myString
+            }
+            ref.child(user.uid).child("Task").child(String(object.id)).updateChildValues(data)
+        }
+        
+        //取得
+        ref.child("Task").observe(.value , with: { (snapshot: DataSnapshot) in
+            //JSON形式でもらいたい　オートIDから
+            let getjson = JSON(snapshot.value as? [String : AnyObject] ?? [:])
+            //データが0件の場合何もしない
+            if getjson.count == 0 { return }
+            //keyから辞書型、"msg"の内容を代入 "\n"は改行
+            for (key, val) in getjson.dictionaryValue {
+                //key情報と入力した文字を表示する
+                print("key",key)
+                print("value",val)
+            }
+        })
+        
+        
+    }
     
 
 }

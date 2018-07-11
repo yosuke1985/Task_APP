@@ -121,7 +121,11 @@
                                 <action selector="logout:" destination="BYZ-38-t0r" id="YF9-cg-HeJ"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Backup" id="02a-fC-blI"/>
+                        <barButtonItem key="rightBarButtonItem" title="Backup" id="02a-fC-blI">
+                            <connections>
+                                <action selector="backUp:" destination="BYZ-38-t0r" id="fo4-oT-la1"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="csY-rg-dpS" id="NnL-X7-lra"/>
