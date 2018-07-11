@@ -18,23 +18,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rq4-Kz-flt">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rq4-Kz-flt">
                                 <rect key="frame" x="77" y="235" width="220" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="PsB-fb-9JL"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DmF-d8-Aus">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DmF-d8-Aus">
                                 <rect key="frame" x="77.5" y="288.5" width="220" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="UrM-OD-WQk"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QQT-Xm-GhR">
                                 <rect key="frame" x="77" y="342" width="220" height="30"/>
@@ -71,7 +71,7 @@
                         <viewLayoutGuide key="safeArea" id="xKi-7Z-ov1"/>
                     </view>
                     <connections>
-                        <outlet property="textFieldLoginEmail" destination="DmF-d8-Aus" id="1iy-ma-mTM"/>
+                        <outlet property="textFieldLoginEmail" destination="rq4-Kz-flt" id="NwL-y2-zz4"/>
                         <outlet property="textFieldLoginPassword" destination="DmF-d8-Aus" id="jn0-lH-kc4"/>
                         <segue destination="QSb-CV-jpZ" kind="show" identifier="home" id="Ye9-qU-wjz"/>
                     </connections>
@@ -115,7 +115,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="CTT-KT-K2S"/>
+                    <navigationItem key="navigationItem" id="CTT-KT-K2S">
+                        <barButtonItem key="leftBarButtonItem" title="Log out" id="oe4-Dd-Cob">
+                            <connections>
+                                <action selector="logout:" destination="BYZ-38-t0r" id="YF9-cg-HeJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Backup" id="02a-fC-blI"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="csY-rg-dpS" id="NnL-X7-lra"/>
                         <segue destination="n9l-1r-GqE" kind="presentation" identifier="detail" id="Hxi-t0-0g2"/>

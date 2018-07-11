@@ -164,7 +164,17 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
     }
     
     
+    @IBAction func logout(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            self.dismiss(animated: true, completion: nil)
+        } catch (let error) {
+            print("Auth sign out failed: \(error)")
+        }
 
+
+    }
+    
     
 
 }

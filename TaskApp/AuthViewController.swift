@@ -30,16 +30,14 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginEmailPass(_ sender: Any) {
-        
-        guard
-            let email = textFieldLoginEmail.text,
+        guard let email = textFieldLoginEmail.text,
             let password = textFieldLoginPassword.text,
             email.count > 0,
-            password.count > 0
-            else {
-                return
-        }
+            password.count > 0 else {return}
         
+        
+        print("email", textFieldLoginEmail.text)
+        print("password", password)
         Auth.auth().signIn(withEmail: email, password: password) { user, error in
             if let error = error, user == nil {
                 let alert = UIAlertController(title: "Sign In Failed",
@@ -51,7 +49,6 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
                 self.present(alert, animated: true, completion: nil)
             }
         }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -111,7 +108,7 @@ class AuthViewController: UIViewController, UITextFieldDelegate {
         return true
     }
 
-
+    
 }
 
 
