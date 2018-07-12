@@ -24,7 +24,7 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
     var taskCount:Int = 0
     var ref:DatabaseReference!
     var user :User!
-    let usersRef = Database.database().reference(withPath: "Task")
+    let usersRef:DatabaseReference! = nil
 
 
     let formatter = DateFormatter()
@@ -40,6 +40,10 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
             self.user = User(authData: user)
             print("User(authData: user)", self.user)
         }
+
+        
+        print("ref", ref)
+        print("over")
         
         super.viewDidLoad()
     }
@@ -49,7 +53,28 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         guard let user = user else{return}
         backUpToFirebase(user:user)
         print("self.user",self.user)
+        print("refhere", ref)
         
+        ref.observe(.value, with: { snapshot in
+            print("snapshot", snapshot)
+//            var newItems: [GroceryItem] = []
+//            for child in snapshot.children {
+//                print("children", snapshot.children)
+//                if let snapshot = child as? DataSnapshot,
+//                    let groceryItem = GroceryItem(snapshot: snapshot) {
+//                    print("ref",snapshot.ref)
+//                    print("key",snapshot.key)
+//                    newItems.append(groceryItem)
+//                }
+//            }
+//
+//            self.items = newItems
+//            self.tableView.reloadData()
+        })
+        
+        
+        self.ref = Database.database().reference(withPath: user.uid)
+
         reload()
 
     }
@@ -169,18 +194,18 @@ class TaskHomeViewController: UIViewController,UITableViewDelegate, UITableViewD
         }
         
         //取得
-        ref.child("Task").observe(.value , with: { (snapshot: DataSnapshot) in
-            //JSON形式でもらいたい　オートIDから
-            let getjson = JSON(snapshot.value as? [String : AnyObject] ?? [:])
-            //データが0件の場合何もしない
-            if getjson.count == 0 { return }
-            //keyから辞書型、"msg"の内容を代入 "\n"は改行
-            for (key, val) in getjson.dictionaryValue {
-                //key情報と入力した文字を表示する
-                print("key",key)
-                print("value",val)
-            }
-        })
+//        ref.child("Task").observe(.value , with: { (snapshot: DataSnapshot) in
+//            //JSON形式でもらいたい　オートIDから
+//            let getjson = JSON(snapshot.value as? [String : AnyObject] ?? [:])
+//            //データが0件の場合何もしない
+//            if getjson.count == 0 { return }
+//            //keyから辞書型、"msg"の内容を代入 "\n"は改行
+//            for (key, val) in getjson.dictionaryValue {
+//                //key情報と入力した文字を表示する
+//                print("key",key)
+//                print("value",val)
+//            }
+//        })
         
         
     }
